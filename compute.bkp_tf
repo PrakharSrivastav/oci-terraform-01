@@ -1,0 +1,26 @@
+resource "oci_core_instance" "tf-oracle-inst-0" {
+  # Required
+  availability_domain = data.oci_identity_availability_domains.ads.availability_domains[0].name
+  compartment_id      = oci_identity_compartment.prakhar-tf-compartment.id
+  shape               = var.instance-shape-std-e4-flex
+  depends_on          = [oci_core_subnet.tf-vcn-subnet-public]
+  source_details {
+    source_id   = var.instance-oracle-linux-ocid
+    source_type = "image"
+  }
+
+  # Optional
+  display_name = var.instance-oracle-linux-0
+  create_vnic_details {
+    assign_public_ip = true
+    subnet_id        = oci_core_subnet.tf-vcn-subnet-public.id
+  }
+  metadata = {
+    ssh_authorized_keys = file(var.instance-user-ssh-key)
+  }
+  preserve_boot_volume = false
+  shape_config {
+    ocpus = 1
+    memory_in_gbs = 1
+  }
+}
