@@ -9,7 +9,7 @@ variable "tf-user-ocid" {
 }
 
 variable "tf-user-private-key" {
-  default = ""
+  default = "/Users/prakhar/.oci/sysco-pkey.pem"
   type    = string
 }
 
@@ -24,11 +24,11 @@ variable "root-tenant-region" {
 }
 
 variable "prakhar-compartment-name" {
-  default = "prakhar-tf-compartment"
+  default = "prakhar"
 }
 
 variable "common-tag-value" {
-  default = "prakhar-test-terraform"
+  default = "prakhar"
 }
 variable "instance-oracle-linux-0" {
   default = "Oracle Linux Instance 0"
@@ -42,5 +42,5 @@ variable "instance-oracle-linux-ocid" {
 }
 
 variable "instance-user-ssh-key" {
-  default = ""
+  default = "/Users/prakhar/sysco/oci/keys/instance-ssh-key.pub"
 }

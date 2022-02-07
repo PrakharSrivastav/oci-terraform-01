@@ -5,10 +5,10 @@ output "all-availability-domains-in-your-tenancy" {
 
 # Outputs for compartment
 output "compartment-name" {
-  value = oci_identity_compartment.prakhar-tf-compartment.name
+  value = oci_identity_compartment.tf-compartment.name
 }
 output "compartment-OCID" {
-  value = oci_identity_compartment.prakhar-tf-compartment.id
+  value = oci_identity_compartment.tf-compartment.id
 }
 
 #output "public-ip-for-compute-instance" {
@@ -47,10 +47,10 @@ output "compartment-OCID" {
 #  value = oci_core_instance.tf-oracle-inst-0.time_created
 #}
 
-output "as400-application-name" {
-  value = oci_functions_application.AS400Replacements.display_name
-}
-
-output "as400-application-id" {
-  value = oci_functions_application.AS400Replacements.id
-}
+#output "as400-application-name" {
+#  value = oci_functions_application.function-app.display_name
+#}
+#
+#output "as400-application-id" {
+#  value = oci_functions_application.function-app.id
+#}
